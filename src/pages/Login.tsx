@@ -61,7 +61,7 @@ export function Login() {
                 </motion.button>
 
                 <NoAccount/>
-                
+
             </form>
           </motion.div>
             <DemoNotice/>
@@ -120,11 +120,25 @@ function BackgroundBlobs() {
 
 function HeaderSection() {
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8 text-white">
-      <div className="text-6xl mb-4">💰</div>
-      <h1 className="text-4xl font-bold mb-2">Welcome Back!</h1>
-      <p className="text-lg opacity-90">Sign in to manage your pots</p>
-    </motion.div>
+        <>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-8 text-white"
+        >
+          <motion.div
+            animate={{ scale: [1, 1.1, 1] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="inline-block mb-4"
+          >
+            <div className="text-6xl">💰</div>
+          </motion.div>
+          
+          <h1 className="text-4xl mb-2">Welcome Back!</h1>
+          <p className="text-lg opacity-90">Sign in to manage your pots</p>
+        </motion.div>
+
+        </>
   );
 }
 
