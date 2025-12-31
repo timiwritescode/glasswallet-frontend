@@ -5,6 +5,7 @@ import { Landing } from './pages/Landing'
 import { ForgotPassword } from './pages/auth/ForgotPassword'
 import { ResetPassword } from './pages/auth/ResetPassword'
 import { NotFound } from './pages/NotFound'
+import { EmailVerified } from './components/auth/EmailVerified'
 
 function App() {
   
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/forgot-password" element={<ForgotPassword/>}/>
         <Route path="/reset-password" element={<ResetPassword/>}/>
+        <Route path="/verify-email" element={<EmailVerified/>}/>
 
         <Route path='/' element={<Landing/>}/>
 
