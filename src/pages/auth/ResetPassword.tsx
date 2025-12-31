@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthHeaderSection } from "../../components/auth/AuthHeader";
 import { Input } from "../../components/Input";
 import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
+import { PATHS } from "../../constant/paths";
 
 export function ResetPassword() {
   const [password, setPassword] = useState("");
@@ -15,7 +16,7 @@ export function ResetPassword() {
     e.preventDefault();
     // call API to update the password
     console.log("Password reset successful");
-    navigate("/login");
+    navigate(PATHS.LOGIN);
   };
 
   return (

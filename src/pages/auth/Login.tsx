@@ -10,6 +10,7 @@ import { ContinueWithGoogleBtn } from "../../components/auth/ContinueWithGoogleB
 import { Divider } from "../../components/auth/Divider";
 import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
 import { BackgroundBlobs } from "../../components/BackgroundBlobs";
+import { PATHS } from "../../constant/paths";
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -83,7 +84,7 @@ function SignUpLink() {
     <div className="mt-6 text-center text-sm text-slate-400 flex items-center justify-center">
       <span>Don't have an account?</span>
       <Link
-        to="/signup"
+        to={PATHS.SIGNUP}
         className="ml-2 text-orange-500 font-bold hover:text-orange-400 transition-colors"
       >
         Sign up
@@ -100,7 +101,7 @@ function ForgotPassword() {
         <span className="text-slate-400 group-hover:text-slate-200">Remember me</span>
       </label>
       <Link
-        to="/forgot-password">
+        to={PATHS.FORGOT_PASSWORD}>
             <button type="button" className="text-orange-500 font-medium hover:text-orange-400">
                 Forgot password?
             </button>

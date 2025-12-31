@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PATHS } from '../../constant/paths';
 
 export function Hero() {
   return (
@@ -35,7 +36,7 @@ export function Hero() {
         and get automatic refunds if goals aren't met.
       </motion.p>
 
-      <Link to="/signup" className="inline-block">
+      <Link to={PATHS.SIGNUP} className="inline-block">
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.98 }}

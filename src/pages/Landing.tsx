@@ -7,6 +7,8 @@ import { HowItWorks } from '../components/landing/HowItWorks';
 import { Features } from '../components/landing/Features';
 import { Testimonials } from '../components/landing/Testimonials';
 import { Footer } from '../components/landing/Footer';
+import { useNavigate } from 'react-router-dom';
+import { PATHS } from '../constant/paths';
 
 
 export function Landing() {
@@ -74,13 +76,14 @@ function RevealSection({ children }: { children: React.ReactNode }) {
 }
 
 function CTA() {
+  const navigate = useNavigate()
     return (
       <section className="py-20 text-center">
         <div className="bg-gradient-to-b from-white/10 to-transparent border border-white/10 rounded-[40px] p-12 backdrop-blur-xl">
             <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to lead the pack?</h2>
             <button 
                 onClick={() => {
-
+                  navigate(PATHS.SIGNUP)
                 }}
                 className="bg-white text-black font-bold px-10 py-5 rounded-2xl text-xl hover:scale-105 transition-transform"
             >

@@ -9,6 +9,7 @@ import { Divider } from "../../components/auth/Divider";
 import { Input } from "../../components/Input";
 import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
 import { BackgroundBlobs } from "../../components/BackgroundBlobs";
+import { PATHS } from "../../constant/paths";
 
 export function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -125,7 +126,7 @@ function SignInLink() {
     <div className="mt-8 text-center text-sm text-slate-500">
       <span>Already have an account?</span>
       <Link
-        to="/login"
+        to={PATHS.LOGIN}
         className="ml-2 text-orange-500 font-bold hover:text-orange-400 transition-colors"
       >
         Sign in

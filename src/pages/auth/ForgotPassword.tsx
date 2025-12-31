@@ -6,6 +6,7 @@ import { Input } from "../../components/Input";
 import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
 import { motion } from "framer-motion";
 import { BackgroundBlobs } from "../../components/BackgroundBlobs";
+import { PATHS } from "../../constant/paths";
 
 export function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -51,7 +52,7 @@ export function ForgotPassword() {
           )}
 
           <div className="mt-8 text-center">
-            <Link to="/login" className="text-sm text-slate-500 hover:text-white inline-flex items-center gap-2 transition-colors">
+            <Link to={PATHS.LOGIN} className="text-sm text-slate-500 hover:text-white inline-flex items-center gap-2 transition-colors">
               <ArrowLeft size={16} /> Back to Sign In
             </Link>
           </div>

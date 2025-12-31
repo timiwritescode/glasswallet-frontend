@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Home, ArrowLeft, Ghost } from "lucide-react";
+import { PATHS } from "../constant/paths";
 
 export function NotFound() {
   return (
@@ -37,7 +38,7 @@ export function NotFound() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link to="/dashboard">
+                <Link to={PATHS.DASHBOARD.ROOT}>
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}

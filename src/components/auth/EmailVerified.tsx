@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { CheckCircle2, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect } from "react";
+import { PATHS } from "../../constant/paths";
 
 export function EmailVerified() {
     const navigate = useNavigate();
 
     useEffect(() => {
         const timer = setTimeout(() => {
-        navigate("/login");
+        navigate(PATHS.LOGIN);
     }, 5000);
 
   return () => clearTimeout(timer); 
@@ -55,7 +56,7 @@ export function EmailVerified() {
           Your account is now fully active. You're ready to start creating pots and collecting money with witnesses.
         </p>
 
-        <Link to="/login">
+        <Link to={PATHS.LOGIN}>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

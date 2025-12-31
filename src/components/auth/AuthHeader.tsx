@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // Add this import
 import { Logo } from "../Logo";
+import { PATHS } from "../../constant/paths";
 
 interface AuthHeaderProps {
   headline: string;
@@ -14,7 +15,7 @@ export function AuthHeaderSection({ headline, rider }: AuthHeaderProps) {
       animate={{ opacity: 1, y: 0 }}
       className="text-center mb-10"
     >
-      <Link to="/" className="inline-block mb-6 group outline-none">
+      <Link to={PATHS.HOME} className="inline-block mb-6 group outline-none">
         <motion.div
           animate={{ 
             y: [0, -8, 0],

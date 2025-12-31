@@ -15,13 +15,13 @@ export function NavBar() {
       
       <div className="flex items-center gap-3 md:gap-6">
         <Link 
-          to="/login" 
+          to="/auth/login" 
           className="text-white/70 hover:text-white text-sm md:text-base font-medium transition-colors px-2"
         >
           Sign In
         </Link>
         
-        <Link to="/signup">
+        <Link to="/auth/signup">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
