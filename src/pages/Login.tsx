@@ -8,6 +8,7 @@ import { GoogleIcon } from "../components/GoogleIcon";
 import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
 import { Divider } from "../components/Divider";
 import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
+import { useNavigate } from "react-router-dom";
 
 export function Login() {
     const [email, setEmail] = useState('');
@@ -60,7 +61,7 @@ export function Login() {
                         <AuthSubmitBtn
                         text="Sign in"/>
 
-                        <NoAccount/>
+                        <SignUpLink/>
 
                     </form>
                 </motion.div>
@@ -72,12 +73,17 @@ export function Login() {
 }
 
 
-function NoAccount() {
+function SignUpLink() {
+    const navigate = useNavigate();
+
     return (
         <div className="mt-6 text-center text-sm text-gray-600">
                     <span className="p-1">Don't have an account?</span>
                     <button
-                        onClick={() => {}}
+                        onClick={() => {
+
+                            navigate('/signup')
+                        }}
                         className="text-purple-600 font-semibold hover:underline"
                     >
                         Sign up

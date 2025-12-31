@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Input } from "../components/Input";
 import { Check, Contact, Contact2Icon, Lock, LucideContact, Mail, PersonStanding } from "lucide-react";
 import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
+import { useNavigate } from "react-router-dom";
 
 
 export function SignUp() {
@@ -68,7 +69,7 @@ export function SignUp() {
                             label="Confirm Password"
                             type="password"
                             icon={Lock}
-                            placeholder={""}
+                            placeholder={"Confirm password"}
                             value={passwordConfirmation}
                             onChange={(e) => setPasswordConfirmation(e.target.value)} 
                         />
@@ -104,11 +105,15 @@ function ExtraInformation() {
 }
 
 function SignInLink() {
+    const navigate = useNavigate();
+
     return (
         <div className="mt-6 text-center text-sm text-gray-600">
             <span className="p-1">Already have an account?</span>
             <button
-                onClick={() => {}}
+                onClick={() => {
+                    navigate("/login")
+                }}
                 className="text-purple-600 font-semibold hover:underline"
             >
                 Sign in
