@@ -5,6 +5,9 @@ import { SocialButton } from "../components/SocialButton";
 import { Input } from "../components/Input";
 import { AuthHeaderSection } from "../components/AuthHeader";
 import { GoogleIcon } from "../components/GoogleIcon";
+import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
+import { Divider } from "../components/Divider";
+import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
 
 export function Login() {
     const [email, setEmail] = useState('');
@@ -30,46 +33,38 @@ export function Login() {
                     transition={{ delay: 0.2 }}
                     className="bg-white rounded-[32px] p-8 shadow-2xl"
                 >
-                    <div className="space-y-6 mb-6">
-                        <SocialButton text="Continue with Google" icon={<GoogleIcon/>} className="border border-gray-300 shadow-md hover:shadow-lg"/>
-                    </div>
+                    <ContinueWithGoogleBtn/>
 
 
-            <Divider text="Or sign in with email" />
+                    <Divider text="Or sign in with email" />
 
-            <form onSubmit={handleLogin} className="space-y-5">
-                <Input 
-                    label="Email Address"
-                    type="email"
-                    icon={Mail}
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)} />
+                    <form onSubmit={handleLogin} className="space-y-5">
+                        <Input 
+                            label="Email Address"
+                            type="email"
+                            icon={Mail}
+                            placeholder="you@example.com"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
 
-                <Input 
-                    label="Password"
-                    type="password"
-                    icon={Lock}
-                    placeholder="........."
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)} />
+                        <Input 
+                            label="Password"
+                            type="password"
+                            icon={Lock}
+                            placeholder="........."
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)} />
 
-                <ForgotPassword/>
+                        <ForgotPassword/>
 
-                <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-2xl py-5 px-6 flex items-center justify-center gap-2 shadow-lg font-bold text-lg"
-                >
-                    Sign In <ArrowRight className="w-5 h-5" />
-                </motion.button>
+                        <AuthSubmitBtn
+                        text="Sign in"/>
 
-                <NoAccount/>
+                        <NoAccount/>
 
-            </form>
-          </motion.div>
-            <DemoNotice/>
+                    </form>
+                </motion.div>
+                <DemoNotice/>
             </div>
 
         </div>
@@ -119,18 +114,6 @@ function BackgroundBlobs() {
         transition={{ duration: 8, repeat: Infinity, delay: 1 }}
       />
     </>
-  );
-}
-
-
-
-
-function Divider({ text }: { text: string }) {
-  return (
-    <div className="relative my-6">
-      <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-gray-200"></div></div>
-      <div className="relative flex justify-center text-sm"><span className="px-4 bg-white text-gray-500">{text}</span></div>
-    </div>
   );
 }
 
