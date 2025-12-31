@@ -26,7 +26,7 @@ export function SignUp() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
       <BackgroundBlobs />
 
       <div className="relative z-10 max-w-md w-full py-12">
@@ -42,7 +42,7 @@ export function SignUp() {
           className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 shadow-2xl"
         >
           <ContinueWithGoogleBtn 
-            className="text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3"
+          className="text-slate-900 dark:text-white font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-slate-200 dark:border-white/10"
           />
 
           <Divider text="Or sign up with email" />
@@ -79,7 +79,7 @@ export function SignUp() {
               label="Password Confirmation"
               type="password"
               icon={Lock}
-              placeholder="Confirm your password"
+              placeholder="Confirm password"
               value={passwordConfirmation}
               onChange={(e) => setPasswordConfirmation(e.target.value)} 
             />
@@ -98,7 +98,6 @@ export function SignUp() {
   );
 }
 
-// --- Internal Helpers (Styled for the new theme) ---
 
 function FeaturesList() {
   const benefits = [
@@ -108,9 +107,9 @@ function FeaturesList() {
   ];
 
   return (
-    <div className="bg-orange-500/5 border border-orange-500/10 rounded-2xl p-5 space-y-3">
+    <div className="bg-orange-500/5 dark:bg-orange-500/5 border border-orange-500/20 dark:border-orange-500/10 rounded-2xl p-5 space-y-3">
       {benefits.map((text, i) => (
-        <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
+        <div key={i} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300 transition-colors duration-300">
           <div className="bg-orange-500/20 p-1 rounded-full">
             <Check className="w-3 h-3 text-orange-500" strokeWidth={3} />
           </div>
@@ -123,11 +122,11 @@ function FeaturesList() {
 
 function SignInLink() {
   return (
-    <div className="mt-8 text-center text-sm text-slate-500">
+    <div className="mt-8 text-center text-sm text-slate-500 dark:text-slate-500">
       <span>Already have an account?</span>
       <Link
         to={PATHS.LOGIN}
-        className="ml-2 text-orange-500 font-bold hover:text-orange-400 transition-colors"
+        className="ml-2 text-orange-500 font-bold hover:text-orange-600 dark:hover:text-orange-400 transition-colors"
       >
         Sign in
       </Link>
@@ -141,9 +140,9 @@ function ExtraInformation() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.4 }}
-      className="mt-8 text-center text-xs text-slate-500 leading-relaxed px-4"
+      className="mt-8 text-center text-xs text-slate-500 dark:text-slate-500 leading-relaxed px-4"
     >
-      By signing up, you agree to our <span className="text-slate-300 hover:underline cursor-pointer">Terms of Service</span> and <span className="text-slate-300 hover:underline cursor-pointer">Privacy Policy</span>
+      By signing up, you agree to our <span className="text-slate-600 dark:text-slate-300 font-semibold hover:underline cursor-pointer">Terms of Service</span> and <span className="text-slate-600 dark:text-slate-300 font-semibold hover:underline cursor-pointer">Privacy Policy</span>
     </motion.div>
   );
 }

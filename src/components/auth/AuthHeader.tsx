@@ -6,14 +6,14 @@ import { PATHS } from "../../constant/paths";
 interface AuthHeaderProps {
   headline: string;
   rider: string;
+  className?: string
 }
-
-export function AuthHeaderSection({ headline, rider }: AuthHeaderProps) {
+export function AuthHeaderSection({ headline, rider, className }: AuthHeaderProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="text-center mb-10"
+      className={`text-center mb-10 ${className}`}
     >
       <Link to={PATHS.HOME} className="inline-block mb-6 group outline-none">
         <motion.div
@@ -29,15 +29,24 @@ export function AuthHeaderSection({ headline, rider }: AuthHeaderProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
+          {/* Logo usually stays the same, but ensure it doesn't have internal hardcoded colors */}
           <Logo className="h-16 w-auto" />
         </motion.div>
       </Link>
       
-      <h1 className="text-4xl md:text-5xl font-black text-white mb-3 tracking-tighter leading-tight">
-        {headline}
-      </h1>
+      {/* Change text-white to text-slate-900 (light) and dark:text-white (dark) */}
+     <h1 className="
+		  text-4xl md:text-5xl font-black mb-3 tracking-tighter leading-tight 
+  			transition-all duration-300
+			dark:text-slate-900
+  			bg-gradient-to-b from-purple-600 to-orange-500 bg-clip-text text-transparent
+			dark:bg-none dark:bg-transparent dark:text-white"
+	>
+  		{headline}
+	</h1>
 
-      <p className="text-lg text-slate-400 font-medium max-w-[280px] mx-auto leading-relaxed">
+      {/* Adjust rider text for better contrast in light mode */}
+      <p className="text-lg text-slate-600 dark:text-slate-400 font-medium max-w-[280px] mx-auto leading-relaxed transition-colors duration-300">
         {rider}
       </p>
     </motion.div>

@@ -19,29 +19,31 @@ export function Login() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate('/dashboard'); 
+    navigate(PATHS.DASHBOARD.ROOT); 
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
-      
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6 transition-colors duration-300">
       <BackgroundBlobs />
 
       <div className="relative z-10 max-w-md w-full py-12">
         <AuthHeaderSection
           headline="Welcome back"
           rider="Sign in to manage your pots"
+          className=""
         />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.5)]"
+
+
+          className="bg-white/70 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 rounded-[40px] p-10 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.1)] dark:shadow-[0_32px_64px_-15px_rgba(0,0,0,0.5)]"
         >
-          <ContinueWithGoogleBtn 
-            className="text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3"
-            />
+         <ContinueWithGoogleBtn 
+            className="text-slate-900 dark:text-white font-bold hover:bg-black/5 dark:hover:bg-white/10 transition-all flex items-center justify-center gap-3 border border-slate-200 dark:border-white/10"
+          />
 
           <Divider text="Or sign in with email" />
 
@@ -97,20 +99,17 @@ function ForgotPassword() {
   return (
     <div className="flex items-center justify-between text-sm">
       <label className="flex items-center gap-4 cursor-pointer group">
-        <input type="checkbox" className="w-4 h-4 accent-orange-500 bg-slate-800 border-white/10 rounded" />
-        <span className="text-slate-400 group-hover:text-slate-200">Remember me</span>
+        <input type="checkbox" className="w-4 h-4 accent-orange-500 bg-slate-200 dark:bg-slate-800 border-slate-300 dark:border-white/10 rounded" />
+        <span className="text-slate-500 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200">Remember me</span>
       </label>
-      <Link
-        to={PATHS.FORGOT_PASSWORD}>
-            <button type="button" className="text-orange-500 font-medium hover:text-orange-400">
-                Forgot password?
-            </button>
+      <Link to={PATHS.FORGOT_PASSWORD}>
+        <button type="button" className="text-orange-500 font-bold hover:text-orange-600 dark:hover:text-orange-400">
+          Forgot password?
+        </button>
       </Link>
-      
     </div>
   );
 }
-
 
 function DemoNotice() {
   return (
