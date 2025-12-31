@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Landing } from './pages/Landing'
 import { ForgotPassword } from './pages/auth/ForgotPassword'
 import { ResetPassword } from './pages/auth/ResetPassword'
+import { NotFound } from './pages/NotFound'
 
 function App() {
   
@@ -17,6 +18,8 @@ function App() {
         <Route path="/reset-password" element={<ResetPassword/>}/>
 
         <Route path='/' element={<Landing/>}/>
+
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
     </BrowserRouter>
   )
