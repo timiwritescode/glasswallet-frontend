@@ -14,7 +14,6 @@ export function AuthHeaderSection({ headline, rider }: AuthHeaderProps) {
       animate={{ opacity: 1, y: 0 }}
       className="text-center mb-10"
     >
-      {/* Wrap the Logo in a Link to handle navigation */}
       <Link to="/" className="inline-block mb-6 group outline-none">
         <motion.div
           animate={{ 
@@ -26,7 +25,7 @@ export function AuthHeaderSection({ headline, rider }: AuthHeaderProps) {
             ]
           }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          whileHover={{ scale: 1.05 }} // Give the user feedback that it's clickable
+          whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
           <Logo className="h-16 w-auto" />

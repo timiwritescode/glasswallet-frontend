@@ -9,6 +9,7 @@ import { AuthHeaderSection } from "../components/auth/AuthHeader";
 import { ContinueWithGoogleBtn } from "../components/auth/ContinueWithGoogleBtn";
 import { Divider } from "../components/auth/Divider";
 import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
+import { BackgroundBlobs } from "../components/BackgroundBlobs";
 
 export function Login() {
   const [email, setEmail] = useState('');
@@ -79,7 +80,7 @@ export function Login() {
 
 function SignUpLink() {
   return (
-    <div className="mt-6 text-center text-sm text-slate-400">
+    <div className="mt-6 text-center text-sm text-slate-400 flex items-center justify-center">
       <span>Don't have an account?</span>
       <Link
         to="/signup"
@@ -94,33 +95,21 @@ function SignUpLink() {
 function ForgotPassword() {
   return (
     <div className="flex items-center justify-between text-sm">
-      <label className="flex items-center gap-2 cursor-pointer group">
+      <label className="flex items-center gap-4 cursor-pointer group">
         <input type="checkbox" className="w-4 h-4 accent-orange-500 bg-slate-800 border-white/10 rounded" />
         <span className="text-slate-400 group-hover:text-slate-200">Remember me</span>
       </label>
-      <button type="button" className="text-orange-500 font-medium hover:text-orange-400">
-        Forgot password?
-      </button>
+      <Link
+        to="/forgot-password">
+            <button type="button" className="text-orange-500 font-medium hover:text-orange-400">
+                Forgot password?
+            </button>
+      </Link>
+      
     </div>
   );
 }
 
-function BackgroundBlobs() {
-  return (
-    <div className="absolute inset-0 pointer-events-none">
-      <motion.div
-        className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-orange-600/20 rounded-full filter blur-[100px]"
-        animate={{ scale: [1, 1.2, 1], x: [0, -30, 0] }}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600/20 rounded-full filter blur-[100px]"
-        animate={{ scale: [1.2, 1, 1.2], x: [0, 30, 0] }}
-        transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-      />
-    </div>
-  );
-}
 
 function DemoNotice() {
   return (

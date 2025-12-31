@@ -8,6 +8,7 @@ import { ContinueWithGoogleBtn } from "../components/auth/ContinueWithGoogleBtn"
 import { Divider } from "../components/auth/Divider";
 import { Input } from "../components/Input";
 import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
+import { BackgroundBlobs } from "../components/BackgroundBlobs";
 
 export function SignUp() {
   const [fullName, setFullName] = useState("");
@@ -143,14 +144,5 @@ function ExtraInformation() {
     >
       By signing up, you agree to our <span className="text-slate-300 hover:underline cursor-pointer">Terms of Service</span> and <span className="text-slate-300 hover:underline cursor-pointer">Privacy Policy</span>
     </motion.div>
-  );
-}
-
-function BackgroundBlobs() {
-  return (
-    <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-orange-600/10 blur-[120px] rounded-full" />
-    </div>
   );
 }
