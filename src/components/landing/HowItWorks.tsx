@@ -23,7 +23,7 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div className="text-center mb-16">
         <h2 className="text-4xl md:text-5xl font-black text-white mb-4">How GlassWallet Works</h2>
         <p className="text-xl text-slate-400">Three simple steps to trusted group payments</p>

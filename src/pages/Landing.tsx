@@ -70,7 +70,7 @@ function RevealSection({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="py-20"
+      className=""
     >
       {children}
     </motion.section>

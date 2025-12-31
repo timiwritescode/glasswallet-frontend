@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
+import { Logo } from '../Logo';
 
 export function Footer() {
   return (
     <footer className="mt-20 py-12 border-t border-white/10">
       <div className="flex flex-col md:flex-row justify-between items-center gap-8 px-6">
         <div className="flex items-center gap-3">
-          <span className="text-2xl">💰</span>
+          <span className="text-2xl"></span>
           <div>
-            <div className="font-black text-white">GlassWallet</div>
+            <div className="font-black text-white"><Logo/></div>
             <div className="text-xs text-slate-500">Money with Witnesses</div>
           </div>
         </div>

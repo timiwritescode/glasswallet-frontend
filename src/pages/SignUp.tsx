@@ -1,143 +1,156 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Lock, Mail, User, Check, ArrowLeft } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+
 import { AuthHeaderSection } from "../components/AuthHeader";
-import { motion } from "framer-motion"
 import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
 import { Divider } from "../components/Divider";
-import { useState } from "react";
 import { Input } from "../components/Input";
-import { Check, Contact, Contact2Icon, Lock, LucideContact, Mail, PersonStanding } from "lucide-react";
 import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
-import { useNavigate } from "react-router-dom";
-
 
 export function SignUp() {
-    const [fullName, setFullName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  
+  const navigate = useNavigate();
 
+  const handleSignUp = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Creating account...");
+    navigate("/dashboard");
+  };
 
-    const handleSignUp = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log(`Signing up with: ${fullName}, ${email}, ${password}`)
-    }
+  return (
+    <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
+      <BackgroundBlobs />
 
-    return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 relative overflow-hidden flex items-center justify-center px-6">
-            <div className="relative z-10 max-w-md w-full py-12">
-                <AuthHeaderSection
-                    headline="Join Glasswallet"
-                    rider="Create your account and start managing group payments"
-                />
+      <div className="relative z-10 max-w-md w-full py-12">
+        <AuthHeaderSection
+          headline="Join GlassWallet"
+          rider="Create your account and start managing group payments"
+        />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="bg-white rounded-[32px] p-8 shadow-2xl"
-                >
-                    <ContinueWithGoogleBtn/>
-                    <Divider text="Or sign up with email"/>
-                    <form onSubmit={handleSignUp} className="space-y-5">
-                        <Input 
-                            label="Full Name"
-                            type="text"
-                            icon={LucideContact}
-                            placeholder="John Doe"
-                            value={email}
-                            onChange={(e) => setFullName(e.target.value)} 
-                        />
-                        
-                        <Input 
-                            label="Email Address"
-                            type="email"
-                            icon={Mail}
-                            placeholder="you@example.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} 
-                        />
-                        
-                        <Input 
-                            label="Password"
-                            type="password"
-                            icon={Lock}
-                            placeholder="Min. 8 characters"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)} 
-                        />
-                        
-                        <Input 
-                            label="Confirm Password"
-                            type="password"
-                            icon={Lock}
-                            placeholder={"Confirm password"}
-                            value={passwordConfirmation}
-                            onChange={(e) => setPasswordConfirmation(e.target.value)} 
-                        />
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 shadow-2xl"
+        >
+          <ContinueWithGoogleBtn 
+            className="text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3"
+          />
 
-                        <FeaturesList/>
+          <Divider text="Or sign up with email" />
 
-                        <AuthSubmitBtn text="Create Account"/>
+          <form onSubmit={handleSignUp} className="space-y-5">
+            <Input 
+              label="Full Name"
+              type="text"
+              icon={User}
+              placeholder="John Doe"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)} 
+            />
+            
+            <Input 
+              label="Email Address"
+              type="email"
+              icon={Mail}
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+            />
+            
+            <Input 
+              label="Password"
+              type="password"
+              icon={Lock}
+              placeholder="Min. 8 characters"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} 
+            />
 
-                    </form>
-                    <SignInLink/>
-                </motion.div>
-                <ExtraInformation/>
-            </div> 
-        </div>
-    )
-    
+            <Input 
+              label="Password Confirmation"
+              type="password"
+              icon={Lock}
+              placeholder="Confirm your password"
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)} 
+            />
+
+            <FeaturesList />
+
+            <AuthSubmitBtn text="Create Account" />
+          </form>
+
+          <SignInLink />
+        </motion.div>
+        
+        <ExtraInformation />
+      </div>
+    </div>
+  );
 }
 
+// --- Internal Helpers (Styled for the new theme) ---
 
-function ExtraInformation() {
-    return (
-        <>
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6 text-center text-sm text-white/80"
-            >
-                <p>By signing up, you agree to our Terms of Service and Privacy Policy</p>
-            </motion.div>
-        </>
-    )
+function FeaturesList() {
+  const benefits = [
+    "Create unlimited pots",
+    "Track all group payments",
+    "Auto-refunds & escrow protection"
+  ];
+
+  return (
+    <div className="bg-orange-500/5 border border-orange-500/10 rounded-2xl p-5 space-y-3">
+      {benefits.map((text, i) => (
+        <div key={i} className="flex items-center gap-3 text-sm text-slate-300">
+          <div className="bg-orange-500/20 p-1 rounded-full">
+            <Check className="w-3 h-3 text-orange-500" strokeWidth={3} />
+          </div>
+          <span>{text}</span>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function SignInLink() {
-    const navigate = useNavigate();
-
-    return (
-        <div className="mt-6 text-center text-sm text-gray-600">
-            <span className="p-1">Already have an account?</span>
-            <button
-                onClick={() => {
-                    navigate("/login")
-                }}
-                className="text-purple-600 font-semibold hover:underline"
-            >
-                Sign in
-            </button>
-        </div>
-    )
+  return (
+    <div className="mt-8 text-center text-sm text-slate-500">
+      <span>Already have an account?</span>
+      <Link
+        to="/login"
+        className="ml-2 text-orange-500 font-bold hover:text-orange-400 transition-colors"
+      >
+        Sign in
+      </Link>
+    </div>
+  );
 }
 
+function ExtraInformation() {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.4 }}
+      className="mt-8 text-center text-xs text-slate-500 leading-relaxed px-4"
+    >
+      By signing up, you agree to our <span className="text-slate-300 hover:underline cursor-pointer">Terms of Service</span> and <span className="text-slate-300 hover:underline cursor-pointer">Privacy Policy</span>
+    </motion.div>
+  );
+}
 
-function FeaturesList() {
-    return (
-        <div className="bg-purple-50 rounded-2xl p-4 space-y-2">
-              <div className="flex items-center gap-2 text-sm text-purple-900">
-                <Check className="w-4 h-4 text-purple-600" />
-                <span>Create unlimited pots</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-purple-900">
-                <Check className="w-4 h-4 text-purple-600" />
-                <span>Track all your group payments</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-purple-900">
-                <Check className="w-4 h-4 text-purple-600" />
-                <span>Auto refunds & escrow protection</span>
-              </div>
-        </div>
-    )
+function BackgroundBlobs() {
+  return (
+    <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-600/10 blur-[120px] rounded-full" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-orange-600/10 blur-[120px] rounded-full" />
+    </div>
+  );
 }

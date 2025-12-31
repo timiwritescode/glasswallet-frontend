@@ -1,133 +1,145 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion"
-import { AlertCircle, Lock, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { AlertCircle, Lock, Mail, ArrowLeft } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
+
+// Your custom components
 import { Input } from "../components/Input";
 import { AuthHeaderSection } from "../components/AuthHeader";
 import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
 import { Divider } from "../components/Divider";
 import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
-import { useNavigate } from "react-router-dom";
 
 export function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-    const handleLogin = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log('Login attempt:', {email, password})
-    };
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Simulate login and redirect to dashboard
+    navigate('/dashboard'); 
+  };
 
-    return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 relative overflow-hidden flex items-center justify-center px-6">
-            <BackgroundBlobs/>
-            <div className="relative z-10 max-w-md w-full py-12">
-                <AuthHeaderSection
-                headline="Welcome back"
-                rider="Sign in to manage your pots"
-                />
+  return (
+    // Base changed to Slate-950 to match Landing Page
+    <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
+      
+      <BackgroundBlobs />
 
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="bg-white rounded-[32px] p-8 shadow-2xl"
-                >
-                    <ContinueWithGoogleBtn/>
+      <div className="relative z-10 max-w-md w-full py-12">
+        <AuthHeaderSection
+          headline="Welcome back"
+          rider="Sign in to manage your pots"
+        />
 
+        {/* The "Glass" Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 shadow-[0_32px_64px_-15px_rgba(0,0,0,0.5)]"
+        >
+          <ContinueWithGoogleBtn 
+            className="text-white font-bold hover:bg-white/10 transition-all flex items-center justify-center gap-3"
+            />
 
-                    <Divider text="Or sign in with email" />
+          <Divider text="Or sign in with email" />
 
-                    <form onSubmit={handleLogin} className="space-y-5">
-                        <Input 
-                            label="Email Address"
-                            type="email"
-                            icon={Mail}
-                            placeholder="you@example.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
+          <form onSubmit={handleLogin} className="space-y-6">
+            <Input 
+              label="Email Address"
+              type="email"
+              icon={Mail}
+              placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)} 
+              // Note: Ensure your Input component uses white text for this theme
+            />
 
-                        <Input 
-                            label="Password"
-                            type="password"
-                            icon={Lock}
-                            placeholder="........."
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)} />
+            <Input 
+              label="Password"
+              type="password"
+              icon={Lock}
+              placeholder="........."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)} 
+            />
 
-                        <ForgotPassword/>
+            <ForgotPassword />
 
-                        <AuthSubmitBtn
-                        text="Sign in"/>
+            <AuthSubmitBtn text="Sign in" />
 
-                        <SignUpLink/>
+            <SignUpLink />
+          </form>
+        </motion.div>
 
-                    </form>
-                </motion.div>
-                <DemoNotice/>
-            </div>
-
-        </div>
-    )
+        <DemoNotice />
+      </div>
+    </div>
+  );
 }
 
+// --- Internal Helper Components ---
 
 function SignUpLink() {
-    const navigate = useNavigate();
-
-    return (
-        <div className="mt-6 text-center text-sm text-gray-600">
-                    <span className="p-1">Don't have an account?</span>
-                    <button
-                        onClick={() => {
-
-                            navigate('/signup')
-                        }}
-                        className="text-purple-600 font-semibold hover:underline"
-                    >
-                        Sign up
-                    </button>
-                </div>
-    )
+  return (
+    <div className="mt-6 text-center text-sm text-slate-400">
+      <span>Don't have an account?</span>
+      <Link
+        to="/signup"
+        className="ml-2 text-orange-500 font-bold hover:text-orange-400 transition-colors"
+      >
+        Sign up
+      </Link>
+    </div>
+  );
 }
 
 function ForgotPassword() {
-    return (
-        <div className="flex items-center justify-between text-sm">
-              <label className="flex items-center gap-2 cursor-pointer">
-                <input type="checkbox" className="w-4 h-4 text-purple-600 rounded" />
-                <span className="text-gray-700">Remember me</span>
-              </label>
-              <button type="button" className="text-purple-600 hover:underline">
-                Forgot password?
-              </button>
-            </div>
-    )
+  return (
+    <div className="flex items-center justify-between text-sm">
+      <label className="flex items-center gap-2 cursor-pointer group">
+        <input type="checkbox" className="w-4 h-4 accent-orange-500 bg-slate-800 border-white/10 rounded" />
+        <span className="text-slate-400 group-hover:text-slate-200">Remember me</span>
+      </label>
+      <button type="button" className="text-orange-500 font-medium hover:text-orange-400">
+        Forgot password?
+      </button>
+    </div>
+  );
 }
 
 function BackgroundBlobs() {
   return (
-    <>
+    <div className="absolute inset-0 pointer-events-none">
       <motion.div
-        className="absolute top-20 right-10 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-        animate={{ scale: [1, 1.2, 1], x: [0, -30, 0], y: [0, 30, 0] }}
-        transition={{ duration: 8, repeat: Infinity }}
+        className="absolute top-[-10%] right-[-10%] w-96 h-96 bg-orange-600/20 rounded-full filter blur-[100px]"
+        animate={{ scale: [1, 1.2, 1], x: [0, -30, 0] }}
+        transition={{ duration: 10, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-20 left-10 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70"
-        animate={{ scale: [1.2, 1, 1.2], x: [0, 30, 0], y: [0, -30, 0] }}
-        transition={{ duration: 8, repeat: Infinity, delay: 1 }}
+        className="absolute bottom-[-10%] left-[-10%] w-96 h-96 bg-purple-600/20 rounded-full filter blur-[100px]"
+        animate={{ scale: [1.2, 1, 1.2], x: [0, 30, 0] }}
+        transition={{ duration: 10, repeat: Infinity, delay: 1 }}
       />
-    </>
+    </div>
   );
 }
 
 function DemoNotice() {
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-6 bg-white/20 backdrop-blur-lg border border-white/30 rounded-2xl p-4 text-white flex gap-3">
-      <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-      <div className="text-sm"><p className="font-semibold">Demo Mode</p><p className="opacity-90">Click "Sign In" with any credentials.</p></div>
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      animate={{ opacity: 1 }} 
+      transition={{ delay: 0.4 }} 
+      className="mt-8 bg-orange-500/10 border border-orange-500/20 rounded-2xl p-4 flex gap-3"
+    >
+      <AlertCircle className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+      <div className="text-sm">
+        <p className="font-bold text-orange-500">Demo Mode</p>
+        <p className="text-slate-400">Feel free to use any credentials to explore.</p>
+      </div>
     </motion.div>
   );
 }
-
-

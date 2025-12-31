@@ -8,7 +8,7 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section className="py-20">
+    <section className="py-10">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-black text-white mb-4">Loved by Friend Groups</h2>
         <div className="flex justify-center gap-1 text-orange-500">
