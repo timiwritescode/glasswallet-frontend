@@ -17,7 +17,10 @@ export function SocialButton({
             onClick={onClick}
             className={`w-full ${className} rounded-2xl py-4 px-6 flex items-center justify-center gap-3 hover:shadow-md transition-all font-semibold`}>
             {icon}
-            <span>{text}</span>
+            <div className="hidden md:block">
+                <span>{text}</span>
+            </div>
+            
         </button>
     )
 }
