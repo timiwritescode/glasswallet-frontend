@@ -5,10 +5,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Your custom components
 import { Input } from "../components/Input";
-import { AuthHeaderSection } from "../components/AuthHeader";
-import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
-import { Divider } from "../components/Divider";
-import { AuthSubmitBtn } from "../components/AuthSubmitBtn";
+import { AuthHeaderSection } from "../components/auth/AuthHeader";
+import { ContinueWithGoogleBtn } from "../components/auth/ContinueWithGoogleBtn";
+import { Divider } from "../components/auth/Divider";
+import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
 
 export function Login() {
   const [email, setEmail] = useState('');

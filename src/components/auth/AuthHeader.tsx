@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom"; // Add this import
-import { Logo } from "./Logo";
+import { Logo } from "../Logo";
 
 interface AuthHeaderProps {
   headline: string;
