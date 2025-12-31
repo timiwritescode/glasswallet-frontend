@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion"
-import { AlertCircle, ArrowRight, Lock, Mail } from "lucide-react";
-import { SocialButton } from "../components/SocialButton";
+import { AlertCircle, Lock, Mail } from "lucide-react";
 import { Input } from "../components/Input";
 import { AuthHeaderSection } from "../components/AuthHeader";
-import { GoogleIcon } from "../components/GoogleIcon";
 import { ContinueWithGoogleBtn } from "../components/ContinueWithGoogleBtn";
 import { Divider } from "../components/Divider";
 import { AuthSubmitBtn } from "../components/AuthSubmitBtn";

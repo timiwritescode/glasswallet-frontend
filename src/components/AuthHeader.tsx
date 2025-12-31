@@ -1,4 +1,5 @@
 import {motion} from "framer-motion";
+import { Logo } from "./Logo";
 
 interface AuthHeaderProps {
     headline: string;
@@ -15,10 +16,12 @@ export function AuthHeaderSection({headline, rider}: AuthHeaderProps) {
         >
           <motion.div
             animate={{ scale: [1, 1.1, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="inline-block mb-4"
+            transition={{ duration: 0, repeat: Infinity }}
+            className="inline-block mb-0"
           >
-            <div className="text-6xl">💰</div>
+            <div className="">
+                <Logo className="h-20 md:h-16 lg:h-64 w-auto" />
+            </div>
           </motion.div>
           
           <h1 className="text-4xl mb-2">{headline}</h1>
