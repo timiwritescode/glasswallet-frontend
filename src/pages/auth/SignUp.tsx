@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import { Lock, Mail, User, Check } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { AuthHeaderSection } from "../components/auth/AuthHeader";
-import { ContinueWithGoogleBtn } from "../components/auth/ContinueWithGoogleBtn";
-import { Divider } from "../components/auth/Divider";
-import { Input } from "../components/Input";
-import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
-import { BackgroundBlobs } from "../components/BackgroundBlobs";
+import { AuthHeaderSection } from "../../components/auth/AuthHeader";
+import { ContinueWithGoogleBtn } from "../../components/auth/ContinueWithGoogleBtn";
+import { Divider } from "../../components/auth/Divider";
+import { Input } from "../../components/Input";
+import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
+import { BackgroundBlobs } from "../../components/BackgroundBlobs";
 
 export function SignUp() {
   const [fullName, setFullName] = useState("");

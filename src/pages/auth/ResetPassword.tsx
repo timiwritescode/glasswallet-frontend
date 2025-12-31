@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Lock, Eye, EyeOff, ShieldCheck } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { AuthHeaderSection } from "../components/auth/AuthHeader";
-import { Input } from "../components/Input";
-import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
+import { AuthHeaderSection } from "../../components/auth/AuthHeader";
+import { Input } from "../../components/Input";
+import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
 
 export function ResetPassword() {
   const [password, setPassword] = useState("");

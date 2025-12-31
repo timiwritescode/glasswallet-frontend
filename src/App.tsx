@@ -1,9 +1,9 @@
-import { Login } from './pages/Login'
-import { SignUp } from './pages/SignUp'
+import { Login } from './pages/auth/Login'
+import { SignUp } from './pages/auth/SignUp'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Landing } from './pages/Landing'
-import { ForgotPassword } from './pages/ForgotPassword'
-import { ResetPassword } from './pages/ResetPassword'
+import { ForgotPassword } from './pages/auth/ForgotPassword'
+import { ResetPassword } from './pages/auth/ResetPassword'
 
 function App() {
   

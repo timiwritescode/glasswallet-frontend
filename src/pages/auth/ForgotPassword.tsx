@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Mail, ArrowLeft, Send } from "lucide-react";
 import { Link } from "react-router-dom";
-import { AuthHeaderSection } from "../components/auth/AuthHeader";
-import { Input } from "../components/Input";
-import { AuthSubmitBtn } from "../components/auth/AuthSubmitBtn";
+import { AuthHeaderSection } from "../../components/auth/AuthHeader";
+import { Input } from "../../components/Input";
+import { AuthSubmitBtn } from "../../components/auth/AuthSubmitBtn";
 import { motion } from "framer-motion";
-import { BackgroundBlobs } from "../components/BackgroundBlobs";
+import { BackgroundBlobs } from "../../components/BackgroundBlobs";
 
 export function ForgotPassword() {
   const [email, setEmail] = useState("");
