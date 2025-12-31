@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion'; // Using framer-motion for animations
-import { ArrowRight, Eye, CheckCircle, Shield, Zap, Star, Sparkles } from 'lucide-react';
-// import type { Screen } from '../App';
 
-// --- Components ---
 import { NavBar } from '../components/landing/NavBar';
 import { Hero } from '../components/landing/Hero';
 import { LivePreview } from '../components/landing/LivePreview';
@@ -14,7 +11,6 @@ import { Footer } from '../components/landing/Footer';
 
 export function Landing() {
   return (
-    // We use slate-950 to make our "Glass" components and gradients pop
     <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden selection:bg-orange-500/30">
       
       

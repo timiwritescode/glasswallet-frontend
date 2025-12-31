@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { AlertCircle, Lock, Mail, ArrowLeft } from "lucide-react";
+import { AlertCircle, Lock, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 // Your custom components
@@ -17,12 +17,10 @@ export function Login() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate login and redirect to dashboard
     navigate('/dashboard'); 
   };
 
   return (
-    // Base changed to Slate-950 to match Landing Page
     <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
       
       <BackgroundBlobs />
@@ -33,7 +31,6 @@ export function Login() {
           rider="Sign in to manage your pots"
         />
 
-        {/* The "Glass" Card */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -54,7 +51,6 @@ export function Login() {
               placeholder="you@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)} 
-              // Note: Ensure your Input component uses white text for this theme
             />
 
             <Input 
@@ -80,7 +76,6 @@ export function Login() {
   );
 }
 
-// --- Internal Helper Components ---
 
 function SignUpLink() {
   return (

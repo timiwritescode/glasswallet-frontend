@@ -5,7 +5,6 @@ import { Logo } from '../Logo';
 export function NavBar() {
   return (
     <nav className="flex items-center justify-between py-6 px-2 md:px-4 max-w-6xl mx-auto relative z-20">
-      {/* 1. Logo Section - Slightly smaller on mobile */}
       <Link to="/" className="flex items-center gap-2">
         <div className="text-2xl md:text-3xl filter drop-shadow-[0_0_8px_rgba(249,115,22,0.5)]"></div>
         <div className="flex flex-col">
@@ -14,9 +13,7 @@ export function NavBar() {
         </div>
       </Link>
       
-      {/* 2. Action Buttons */}
       <div className="flex items-center gap-3 md:gap-6">
-        {/* We removed 'hidden' so it shows on mobile, but kept it subtle */}
         <Link 
           to="/login" 
           className="text-white/70 hover:text-white text-sm md:text-base font-medium transition-colors px-2"

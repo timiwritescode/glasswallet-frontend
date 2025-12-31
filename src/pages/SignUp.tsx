@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Lock, Mail, User, Check, ArrowLeft } from "lucide-react";
+import { Lock, Mail, User, Check } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 
 import { AuthHeaderSection } from "../components/AuthHeader";
