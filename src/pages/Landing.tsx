@@ -79,9 +79,9 @@ function CTA() {
   return (
     <section className="py-20 text-center">
       <div className="
-        /* LIGHT MODE: Milky white glass */
-        bg-white/60 border border-white/80 
-        /* DARK MODE: Darker glass */
+        
+        bg-white/5 border border-white 
+        
         dark:bg-gradient-to-b dark:from-white/10 dark:to-transparent dark:border-white/10 
         rounded-[40px] p-12 backdrop-blur-xl shadow-xl dark:shadow-none transition-all duration-300"
       >
@@ -91,7 +91,6 @@ function CTA() {
         <button 
           onClick={() => navigate(PATHS.SIGNUP)}
           className="
-            /* Dark button in light mode, White button in dark mode */
             bg-slate-900 text-white dark:bg-white dark:text-black 
             font-bold px-10 py-5 rounded-2xl text-xl hover:scale-105 transition-transform shadow-lg"
         >
