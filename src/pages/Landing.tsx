@@ -13,8 +13,7 @@ import { PATHS } from '../constant/paths';
 
 export function Landing() {
   return (
-    <div className="min-h-screen bg-slate-950 text-white relative overflow-hidden selection:bg-orange-500/30">
-      
+<div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white relative overflow-hidden selection:bg-orange-500/30 transition-colors duration-500">      
       
       <BackgroundBlobs />
 
@@ -55,12 +54,12 @@ export function Landing() {
 function BackgroundBlobs() {
   return (
     <div className="absolute inset-0 pointer-events-none">
-      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-orange-600/10 blur-[100px] rounded-full" />
+      {/* Updated: Adjusted opacity and blur for light mode */}
+      <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple-600/10 dark:bg-purple-600/20 blur-[120px] rounded-full" />
+      <div className="absolute bottom-[10%] right-[-5%] w-[500px] h-[500px] bg-orange-600/5 dark:bg-orange-600/10 blur-[100px] rounded-full" />
     </div>
   );
 }
-
 function RevealSection({ children }: { children: React.ReactNode }) {
   return (
     <motion.section
@@ -76,20 +75,29 @@ function RevealSection({ children }: { children: React.ReactNode }) {
 }
 
 function CTA() {
-  const navigate = useNavigate()
-    return (
-      <section className="py-20 text-center">
-        <div className="bg-gradient-to-b from-white/10 to-transparent border border-white/10 rounded-[40px] p-12 backdrop-blur-xl">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">Ready to lead the pack?</h2>
-            <button 
-                onClick={() => {
-                  navigate(PATHS.SIGNUP)
-                }}
-                className="bg-white text-black font-bold px-10 py-5 rounded-2xl text-xl hover:scale-105 transition-transform"
-            >
-                Get Started for Free
-            </button>
-        </div>
-      </section>
-    );
+  const navigate = useNavigate();
+  return (
+    <section className="py-20 text-center">
+      <div className="
+        /* LIGHT MODE: Milky white glass */
+        bg-white/60 border border-white/80 
+        /* DARK MODE: Darker glass */
+        dark:bg-gradient-to-b dark:from-white/10 dark:to-transparent dark:border-white/10 
+        rounded-[40px] p-12 backdrop-blur-xl shadow-xl dark:shadow-none transition-all duration-300"
+      >
+        <h2 className="text-4xl md:text-5xl font-black mb-6 text-slate-900 dark:text-white">
+          Ready to lead the pack?
+        </h2>
+        <button 
+          onClick={() => navigate(PATHS.SIGNUP)}
+          className="
+            /* Dark button in light mode, White button in dark mode */
+            bg-slate-900 text-white dark:bg-white dark:text-black 
+            font-bold px-10 py-5 rounded-2xl text-xl hover:scale-105 transition-transform shadow-lg"
+        >
+          Get Started for Free
+        </button>
+      </div>
+    </section>
+  );
 }

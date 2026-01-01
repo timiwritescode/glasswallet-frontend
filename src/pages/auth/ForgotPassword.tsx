@@ -13,10 +13,11 @@ export function ForgotPassword() {
   const [isSent, setIsSent] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 relative overflow-hidden flex flex-col items-center justify-center px-6 transition-colors duration-500">
       <BackgroundBlobs />
       
       <div className="relative z-10 max-w-md w-full">
+
         <AuthHeaderSection 
           headline={isSent ? "Check your mail" : "Forgot Password?"} 
           rider={isSent ? "We've sent recovery instructions to your email." : "No worries, it happens. Enter your email to reset."} 
@@ -25,7 +26,8 @@ export function ForgotPassword() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[40px] p-10 shadow-2xl"
+
+          className="bg-white/70 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 rounded-[40px] p-10 shadow-xl dark:shadow-2xl transition-all duration-300"
         >
           {!isSent ? (
             <form onSubmit={(e) => { e.preventDefault(); setIsSent(true); }} className="space-y-6">
@@ -41,18 +43,26 @@ export function ForgotPassword() {
             </form>
           ) : (
             <div className="text-center space-y-6">
-              <div className="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto">
+              <div className="w-20 h-20 bg-orange-500/10 dark:bg-orange-500/20 rounded-full flex items-center justify-center mx-auto">
                 <Send className="text-orange-500 w-10 h-10" />
               </div>
-              <p className="text-slate-400">Didn't get the email? Check your spam folder or try another address.</p>
-              <button onClick={() => setIsSent(false)} className="text-orange-500 font-bold hover:underline">
+              <p className="text-slate-600 dark:text-slate-400">
+                Didn't get the email? Check your spam folder or try another address.
+              </p>
+              <button 
+                onClick={() => setIsSent(false)} 
+                className="text-orange-600 dark:text-orange-500 font-black hover:underline transition-colors"
+              >
                 Try again
               </button>
             </div>
           )}
 
           <div className="mt-8 text-center">
-            <Link to={PATHS.LOGIN} className="text-sm text-slate-500 hover:text-white inline-flex items-center gap-2 transition-colors">
+            <Link 
+              to={PATHS.LOGIN} 
+              className="text-sm text-slate-500 hover:text-slate-900 dark:hover:text-white inline-flex items-center gap-2 transition-colors font-medium"
+            >
               <ArrowLeft size={16} /> Back to Sign In
             </Link>
           </div>
@@ -61,5 +71,3 @@ export function ForgotPassword() {
     </div>
   );
 }
-
-// Reuse your BackgroundBlobs component here...

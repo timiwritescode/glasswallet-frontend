@@ -5,7 +5,7 @@ import { Landing } from './pages/Landing'
 import { ForgotPassword } from './pages/auth/ForgotPassword'
 import { ResetPassword } from './pages/auth/ResetPassword'
 import { NotFound } from './pages/NotFound'
-import { EmailVerified } from './components/auth/EmailVerified'
+import { EmailVerified } from './pages/auth/EmailVerified'
 import { VerifyResetCode } from './pages/auth/VerifyResetCode'
 import { PATHS } from './constant/paths'
 
